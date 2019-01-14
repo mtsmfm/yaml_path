@@ -1,0 +1,13 @@
+version: "3.7"
+services:
+  ruby-2-6: &ruby
+    volumes:
+      - .:/app:cached
+      - home:/home/app
+      - $HOME/.gitconfig:/home/app/.gitconfig:ro
+      - $HOME/.ssh:/home/app/.ssh:ro
+      - $HOME/.gem:/home/app/.gem
+  ruby-2-5:
+    <<: *ruby
+  ruby-2-4:
+    <<: *ruby
