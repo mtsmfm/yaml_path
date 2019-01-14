@@ -1,8 +1,8 @@
 # YamlPath
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/yaml_path`. To experiment with that code, run `bin/console` for an interactive prompt.
+[WIP]
 
-TODO: Delete this and the text above, and describe your gem
+A tool to modify YAML contents by JSON path like operators.
 
 ## Installation
 
@@ -22,7 +22,26 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+yaml = <<~YAML
+a:
+  b: c
+  c: d
+YAML
+
+new_yaml = YamlPath.replace(yaml, '$.a.b') do |content|
+  puts content # => c
+
+  content * 3
+end
+
+puts new_yaml
+
+# =>
+# a:
+#  b: ccc
+#  c: d
+```
 
 ## Development
 
